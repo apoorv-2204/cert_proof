@@ -30,13 +30,16 @@ asdf is at `/home/apoorv_2204/bin/asdf`; `elixir`/`mix`/`erl` resolve through
 ```
 cert_proof/                      <- the git repo (github.com/apoorv-2204/cert_proof)
 ├── AGENTS.md                    <- conventions (this file)
-├── README.md                    <- THE FINDINGS: verdict table + per-question write-up
+├── README.md                    <- FINDINGS: the 5 questions the candidate got right
+├── OTHER_DISPUTES.md            <- questions the candidate also got wrong
+├── evidence/                    <- results-screen screenshots, filed by outcome
 ├── sync_readme_questions.py     <- regenerates README's "Questions verbatim" appendix
 ├── mix.exs
 ├── lib/
 └── test/
     ├── test_helper.exs
-    └── proofs/                  <- one file per disputed exam question
+    ├── proofs/                  <- candidate answered correctly, key was wrong
+    └── answered_wrong/          <- candidate's answer was also wrong
         ├── s02_q05_node_spawn_link_dead_node_test.exs
         ├── s03_q07_ets_data_structure_test.exs
         ├── s03_q12_ets_match_test.exs
