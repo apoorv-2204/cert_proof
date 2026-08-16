@@ -145,7 +145,7 @@ neither.**
   Elixir 1.19.1 / OTP 28, which the suite prints on every run.
 * Lead with **Q54, Q37 and Q46** — those are unambiguous and independently
   verifiable. Q5 is equally solid. Q48 needs its full option list first.
-* Only three keys were actually visible on the results screens (Q37, Q39, Q54);
+* Only two keys were actually visible on the results screens (Q37 and Q54);
   the rest are inferred from "your selection is marked wrong". Where a write-up
   says *inferred*, confirm it before filing.
 

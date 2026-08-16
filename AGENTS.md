@@ -48,7 +48,6 @@ cert_proof/                      <- the git repo (github.com/apoorv-2204/cert_pr
         ├── s04_q17_genserver_start_link_return_test.exs
         ├── s07_q36_deps_directory_test.exs
         ├── s08_q37_protocols_polymorphism_test.exs
-        ├── s08_q39_protocols_function_definitions_test.exs
         ├── s09_q41_registry_exit_test.exs
         ├── s10_q46_streams_vs_enum_test.exs
         ├── s11_q48_supervise_os_processes_test.exs
@@ -225,13 +224,14 @@ findings here; this file is for conventions only.
 
 ## Recording a verdict honestly
 
-Q39 is the worked example of getting this right. The first pass concluded the exam
-was wrong; checking Elixir's own `protocol.ex` showed normal functions really do
-live in protocol modules, and the verdict was reversed to CORRECT. Q41 went the
-other way: the first exploration accidentally tested an *unregistered* process, and
-only writing the real test exposed that `Registry.register/3` calls
-`Process.link/1`, which changed the finding entirely.
+Q41 is the worked example. The first exploration accidentally tested an
+*unregistered* process and concluded that registered processes survive a
+Registry exit. Writing the real test exposed that `Registry.register/3` calls
+`Process.link/1`, which reversed the finding entirely — and turned out to sink
+both offered options.
 
-Both cases came from measuring rather than assuming. Run the code before writing
-the verdict, and when the measurement contradicts the earlier conclusion, change
-the conclusion.
+The rule that came out of it: run the code before writing the verdict, and when
+the measurement contradicts an earlier conclusion, change the conclusion. A
+verdict that was reverse-engineered to support a dispute is worse than useless,
+because one wrong claim discredits the rest.
+

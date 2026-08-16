@@ -2,8 +2,9 @@
 
 These are the questions where the exam's key looks wrong **but the candidate's
 answer was not correct either**, so there are no marks to reclaim. They are kept
-because most are still genuine defects: the ask for these is to **void the
-question**, not to award the mark.
+because they are still genuine defects: the ask for these is to **void the
+question**, not to award the mark. Five of the seven have no correct option at
+all.
 
 Proofs live in [test/answered_wrong/](test/answered_wrong/) and run as part of
 the normal `mix test`.
@@ -25,7 +26,6 @@ The marks actually recoverable are in [README.md](README.md).
 | 17 | 4 — GenServer | `GenServer.start_link/3` return | `{:ok, pid}` | no correct option |
 | 36 | 7 — Mix | Purpose of `deps/` | source code — A is true | key wrongly excludes A |
 | 41 | 9 — Registry | Registry instance exits | neither — processes **die** | no correct option |
-| 39 | 8 — Protocols | Normal + callback functions | true | **exam was right; candidate wrong** |
 
 ---
 
@@ -123,30 +123,6 @@ It dies under an *orderly* stop too, so this is not a `:kill` artifact. On the
 half where the options differ, A is right (entries are lost; the ETS tables are
 destroyed, `:ets.lookup` then raises) and B is wrong. **A is strictly closer to
 the truth than B, and the exam marked A wrong.**
-
-### Q39 — Normal and callback functions in protocols (Section 8, `aK8gykyYCR`)
-
-The exam says **true**, the candidate said false, and **the exam is right.**
-Recorded here because conceding it makes the rest of the disputes stronger.
-
-Every protocol module already carries ordinary functions — `impl_for/1`,
-`impl_for!/1`, `__protocol__/1` — emitted via `Kernel.def` by Elixir's own
-`protocol.ex`. You can add your own the same way. Callbacks are there too: bare
-`def/1` signatures become the behaviour's callbacks, and an explicit `@callback`
-registers as well (with a discouraging warning).
-
-The trap is that the *idiomatic* spelling `def foo(x), do: …` fails with
-"undefined function def/2", because `defprotocol` imports `Protocol.def/1` instead
-of `Kernel.def/2`. Only the spelling is blocked, not the capability.
-
----
-
----
-
-## Note on Q39
-
-Q39 is the one the exam got right. Concede it up front when filing — it costs
-nothing and makes the other claims credible.
 
 ---
 
@@ -277,22 +253,6 @@ B. It contains documentation for the project's dependencies.    <- candidate sel
 **Exam key:** _not captured on the results screen — inferred_  
 **Candidate:** A + B  (marked Incorrect, 0/1)  
 **Reality:** A is TRUE, B is FALSE. VERDICT = FALSE (the exam is wrong).
-
-### Q39 — Section 8 of 12 — Protocols
-
-`External ID: aK8gykyYCR` · Question 39 of 60 (3 of 4 in section) · [proof](test/answered_wrong/s08_q39_protocols_function_definitions_test.exs)
-
-```text
-"You can define both normal and callback functions in Protocols in Elixir."
-
-Response type: Single correct
-A. true    <- exam marked correct (grey tick on the results screen)
-B. false   <- candidate answered (marked Incorrect, 0/1)
-```
-
-**Exam key:** A  
-**Candidate:** ?  
-**Reality:** ?
 
 ### Q41 — Section 9 of 12 — Registry
 

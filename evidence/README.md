@@ -5,7 +5,6 @@ Screenshots of the exam's results pages, filed by outcome.
 | Folder | Meaning | Questions |
 |---|---|---|
 | `candidate_correct/` | candidate answered correctly, **exam key was wrong** | Q5, Q37, Q46, Q48, Q54 |
-| `exam_correct/` | **exam was right**, candidate was wrong | Q39 |
 | `other/` | key looks wrong but candidate's answer was also wrong | Q7, Q12, Q14, Q16, Q17, Q36, Q41 |
 | `_unsorted/` | not yet identified — see below | — |
 
@@ -34,7 +33,7 @@ from index to filename is:
 10  Screenshot_20260816_183109.png     25  Screenshot_20260816_185605.png
 11  Screenshot_20260816_183143.png     26  Screenshot_20260816_185656.png *
 12  Screenshot_20260816_183238.png     27  Screenshot_20260816_185722.png *
-13  Screenshot_20260816_183340.png     28  Screenshot_20260816_185734.png *
+13  Screenshot_20260816_183340.png     28  Screenshot_20260816_185734.png
 14  Screenshot_20260816_183404.png     29  Screenshot_20260816_185746.png
 15  Screenshot_20260816_183421.png
 ```
@@ -48,7 +47,6 @@ from index to filename is:
 | `candidate_correct/q05_node_spawn_link_FzhHRqYbAy.png` | Q5 — Distribution | read directly |
 | `candidate_correct/q54_supervisor_init_DYoKKwfhjM.png` | Q54 — Supervisors | read directly |
 | `candidate_correct/q54_supervisor_init_DYoKKwfhjM_b.png` | Q54 — Supervisors (second capture) | read directly |
-| `exam_correct/q39_protocol_functions_aK8gykyYCR.png` | Q39 — Protocols | read directly |
 
 Screenshot 29 (`Screenshot_20260816_185746.png`) is the largest capture and may
 be the one with the `Information` accordion expanded — worth checking, since
