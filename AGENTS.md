@@ -31,24 +31,14 @@ asdf is at `/home/apoorv_2204/bin/asdf`; `elixir`/`mix`/`erl` resolve through
 cert_proof/                      <- the git repo (github.com/apoorv-2204/cert_proof)
 ├── AGENTS.md                    <- conventions (this file)
 ├── README.md                    <- FINDINGS: the 5 questions the candidate got right
-├── OTHER_DISPUTES.md            <- questions the candidate also got wrong
-├── evidence/                    <- results-screen screenshots, filed by outcome
-├── sync_readme_questions.py     <- regenerates README's "Questions verbatim" appendix
+├── evidence/                    <- results-screen screenshots
 ├── mix.exs
 ├── lib/
 └── test/
     ├── test_helper.exs
-    ├── proofs/                  <- candidate answered correctly, key was wrong
-    └── answered_wrong/          <- candidate's answer was also wrong
+    └── proofs/                  <- candidate answered correctly, key was wrong
         ├── s02_q05_node_spawn_link_dead_node_test.exs
-        ├── s03_q07_ets_data_structure_test.exs
-        ├── s03_q12_ets_match_test.exs
-        ├── s04_q14_genserver_abnormal_terminate_test.exs
-        ├── s04_q16_genserver_default_init_test.exs
-        ├── s04_q17_genserver_start_link_return_test.exs
-        ├── s07_q36_deps_directory_test.exs
         ├── s08_q37_protocols_polymorphism_test.exs
-        ├── s09_q41_registry_exit_test.exs
         ├── s10_q46_streams_vs_enum_test.exs
         ├── s11_q48_supervise_os_processes_test.exs
         └── s11_q54_supervisor_init_failure_test.exs
@@ -58,8 +48,8 @@ cert_proof/                      <- the git repo (github.com/apoorv-2204/cert_pr
 
 ```sh
 cd cert_proof
-mix test                                    # everything
-mix test test/proofs/example_proof_test.exs # one proof
+mix test                                                     # everything
+mix test test/proofs/s11_q54_supervisor_init_failure_test.exs  # one proof
 ```
 
 Baseline is green. If something fails that isn't *meant* to fail, that's a real
@@ -224,7 +214,8 @@ findings here; this file is for conventions only.
 
 ## Recording a verdict honestly
 
-Q41 is the worked example. The first exploration accidentally tested an
+Q41 — a Registry question, since dropped from the repo — is the worked example.
+The first exploration accidentally tested an
 *unregistered* process and concluded that registered processes survive a
 Registry exit. Writing the real test exposed that `Registry.register/3` calls
 `Process.link/1`, which reversed the finding entirely — and turned out to sink

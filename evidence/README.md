@@ -5,7 +5,6 @@ Screenshots of the exam's results pages, filed by outcome.
 | Folder | Meaning | Questions |
 |---|---|---|
 | `candidate_correct/` | candidate answered correctly, **exam key was wrong** | Q5, Q37, Q46, Q48, Q54 |
-| `other/` | key looks wrong but candidate's answer was also wrong | Q7, Q12, Q14, Q16, Q17, Q36, Q41 |
 | `_unsorted/` | not yet identified — see below | — |
 
 Naming: `q<NN>_<topic>_<ExternalID>.png`.
@@ -16,9 +15,10 @@ Naming: `q<NN>_<topic>_<ExternalID>.png`.
 plus contact sheets `small1.png`–`small6.png` showing every screenshot's title
 bar with a red index number.
 
-To finish the filing, open the contact sheets and note the question number
-against each red index, then move each file into the right folder. The mapping
-from index to filename is:
+Only Q5, Q37, Q46, Q48 and Q54 are still in scope; anything belonging to another
+question can stay unsorted. To finish the filing, open the contact sheets and
+note the question number against each red index, then move the shots for those
+five into `candidate_correct/`. The mapping from index to filename is:
 
 ```
 01  Screenshot_20260816_164725.png     16  Screenshot_20260816_183429.png
