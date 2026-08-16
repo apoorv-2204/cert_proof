@@ -12,8 +12,10 @@ defmodule Proofs.S08Q39ProtocolsFunctionDefinitionsTest do
     "You can define both normal and callback functions in Protocols in Elixir."
 
     Response type: Single correct
-    A. true    <- exam marked correct
+    A. true    <- exam marked correct (grey tick on the results screen)
     B. false   <- candidate answered (marked Incorrect, 0/1)
+
+  Exam key  : A
 
   VERDICT = CORRECT. The exam is right and the candidate's answer is wrong.
   Recording this honestly, because disputing it would undermine the real

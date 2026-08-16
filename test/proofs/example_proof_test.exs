@@ -27,7 +27,9 @@ defmodule Proofs.ExampleProofTest do
   end
 
   test "length/1 does not even accept a String" do
-    assert_raise ArgumentError, fn -> length("hi") end
+    # Called through apply/3 so the compiler does not reject it statically —
+    # that it CAN be rejected statically is itself part of the proof.
+    assert_raise ArgumentError, fn -> apply(Kernel, :length, ["hi"]) end
     assert String.length("hi") == 2
   end
 end

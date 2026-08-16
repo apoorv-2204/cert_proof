@@ -47,6 +47,10 @@ defmodule Proofs.S04Q16GenserverDefaultInitTest do
   of the three; but as written, none is correct.
   """
 
+  # Resolved at runtime: the module is built by Code.compile_string in setup_all,
+  # so a literal reference would warn at compile time.
+  @mod Module.concat(["Proofs.S04Q16.ExampleServer"])
+
   @src """
   defmodule Proofs.S04Q16.ExampleServer do
     use GenServer
@@ -63,7 +67,7 @@ defmodule Proofs.S04Q16GenserverDefaultInitTest do
   end
 
   test "1. it returns {:ok, pid} — a live process, with state nil" do
-    assert {:ok, pid} = Proofs.S04Q16.ExampleServer.start_link()
+    assert {:ok, pid} = apply(@mod, :start_link, [])
     assert is_pid(pid)
 
     # `nil` is the STATE, which is what option A confuses for the return value.
@@ -73,7 +77,7 @@ defmodule Proofs.S04Q16GenserverDefaultInitTest do
   end
 
   test "2. B is FALSE — the server does not crash" do
-    {:ok, pid} = Proofs.S04Q16.ExampleServer.start_link()
+    {:ok, pid} = apply(@mod, :start_link, [])
     ref = Process.monitor(pid)
 
     refute_receive {:DOWN, ^ref, :process, ^pid, _}, 500
@@ -90,8 +94,8 @@ defmodule Proofs.S04Q16GenserverDefaultInitTest do
     assert warning =~ "We will inject a default implementation for now"
 
     # Proof it is not an error: the module compiled and runs.
-    assert function_exported?(Proofs.S04Q16.ExampleServer, :start_link, 0)
-    assert {:ok, pid} = Proofs.S04Q16.ExampleServer.start_link()
+    assert function_exported?(@mod, :start_link, 0)
+    assert {:ok, pid} = apply(@mod, :start_link, [])
     GenServer.stop(pid)
   end
 end
